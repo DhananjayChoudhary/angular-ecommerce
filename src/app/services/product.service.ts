@@ -19,6 +19,13 @@ export class ProductService {
        map(response => response._embedded.products)
      );
    }
+
+   searchProduct(theKeyword: string): Observable<Product[]>{
+    const url = this.baseUrl + "/search/findByNameContainingIgnoreCase?name=" + theKeyword; 
+    return this.httpClient.get<GetReponse>(url).pipe(
+      map(response => response._embedded.products)
+    );
+  }
 }
 
 interface GetReponse{
