@@ -10,11 +10,18 @@ import { ProductCategoryComponent } from './components/product-category/product-
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableModule } from 'primeng/table';
+import { BookDataComponent } from './components/book-data/book-data.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ProductDataTableComponent } from './components/product-data-table/product-data-table.component';
+import {PaginatorModule} from 'primeng/paginator';
+
 
 
 const routes: Routes = [
+  {path: 'book', component: BookDataComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
-  {path: 'search/:keyword', component: ProductListComponent},
+  {path: 'search/:keyword', component: ProductDataTableComponent},
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
@@ -30,13 +37,18 @@ const routes: Routes = [
     ProductCategoryComponent,
     SearchComponent,
     ProductCategoryComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    BookDataComponent,
+    ProductDataTableComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    TableModule,
+    BrowserAnimationsModule,
+    PaginatorModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

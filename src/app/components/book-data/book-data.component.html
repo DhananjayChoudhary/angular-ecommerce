@@ -1,0 +1,36 @@
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+<p-table [value]="books" [paginator]="true" [rows]="2" [rowsPerPageOptions]="[5,10,15,20]"
+[totalRecords]="totalRecords" [pageLinks]="3">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Price In Dollars</th>          
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>          
+        </tr>
+    </ng-template>
+  </p-table>
+ 
+  <hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>

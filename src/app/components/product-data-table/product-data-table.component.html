@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- ng prime data table with pagination -->
+                <p-table [value]="products" 
+                 >
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                
+                                <th>Price In Dollars</th>          
+                                <th>Stock</th> 
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr>
+                                <td>{{product.id}}</td> 
+                                <td>{{product.name}}</td>
+                                
+                                <td>{{product.unitPrice | currency:'USD'}}</td>
+                                <td>{{product.unitsInStock}}</td>          
+                            </tr>
+                        </ng-template>
+                        
+                        <ng-template pTemplate="summary">
+                            <p-paginator #p [rows]="thePageSize" [totalRecords]="theTotalElements" [pageLinkSize]="3"
+                                         [rowsPerPageOptions]="[5,10,15,20]" 
+                                         (onPageChange) = "paginate($event)"
+                            >Total Hits:{{theTotalElements}}</p-paginator>
+                            <p-footer>Total Hits:{{theTotalElements}}
+                                
+                            </p-footer>
+                            <button (click)="reset($event)">Reset</button>
+                        </ng-template> 
+                    </p-table>
+            </div>  
+        </div>
+    </div>
+</div>
+

@@ -32,7 +32,7 @@ export class ProductService {
 
    searchProduct(thePage:number, theSize: number,theKeyword: string): Observable<GetReponse>{
     const url = this.baseUrl + `/search/findByNameContainingIgnoreCase?name=${theKeyword}`
-                             + `&size=${theSize}&page=${thePage}`;  
+                             + `&page=${thePage}&size=${theSize}`;  
     return this.httpClient.get<GetReponse>(url);
     }
     
