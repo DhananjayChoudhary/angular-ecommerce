@@ -11,7 +11,6 @@ import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableModule } from 'primeng/table';
-import { BookDataComponent } from './components/book-data/book-data.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProductDataTableComponent } from './components/product-data-table/product-data-table.component';
 import {PaginatorModule} from 'primeng/paginator';
@@ -19,7 +18,6 @@ import {PaginatorModule} from 'primeng/paginator';
 
 
 const routes: Routes = [
-  {path: 'book', component: BookDataComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductDataTableComponent},
   {path: 'category/:id', component: ProductListComponent},
@@ -38,7 +36,6 @@ const routes: Routes = [
     SearchComponent,
     ProductCategoryComponent,
     ProductDetailsComponent,
-    BookDataComponent,
     ProductDataTableComponent
   ],
   imports: [
