@@ -23,6 +23,7 @@ export class ProductDataTableComponent implements OnInit {
               private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.thePageNumber = 0;
     this.route.paramMap.subscribe(() =>
     this.listProducts()
     
@@ -51,21 +52,22 @@ export class ProductDataTableComponent implements OnInit {
 
    handleKeywordSearch(){
      const theKeyword = this.route.snapshot.paramMap.get('keyword')!;
+ 
      if(this.thePreviousKeyword != theKeyword){
       this.thePageNumber = 0;
+     
      }
      this.thePreviousKeyword = theKeyword;
-     this.productService.searchProduct(this.thePageNumber , this.thePageSize, theKeyword)
+     this.productService.searchProduct(this.thePageNumber  , this.thePageSize, theKeyword)
                              .subscribe(this.processResult()) ;
    }
 
    processResult() {
     return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; }) => {
       this.products = data._embedded.products;
-      this.thePageNumber  = data.page.number +1 ;
+      this.thePageNumber  = data.page.number  ;
       this.thePageSize  = data.page.size;
       this.theTotalElements = data.page.totalElements;
-
     }
    }
 

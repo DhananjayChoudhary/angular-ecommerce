@@ -14,6 +14,7 @@ import { TableModule } from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProductDataTableComponent } from './components/product-data-table/product-data-table.component';
 import {PaginatorModule} from 'primeng/paginator';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 
 
@@ -36,7 +37,8 @@ const routes: Routes = [
     SearchComponent,
     ProductCategoryComponent,
     ProductDetailsComponent,
-    ProductDataTableComponent
+    ProductDataTableComponent,
+    CartStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
