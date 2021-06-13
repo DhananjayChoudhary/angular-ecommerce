@@ -33,6 +33,7 @@ export class CartService {
       existingCartItem.quantity++;
     }
     else{
+      theCartItem.quantity = 1;
       this.cartItems.push(theCartItem);
     }
 
@@ -48,8 +49,28 @@ export class CartService {
         thetotalQuantity += theCartItem.quantity;
         thetotalPrice +=  (theCartItem.unitPrice * theCartItem.quantity);
     }
-    console.log(`thetotalPrice :: ${thetotalPrice}`)
+   
     this.totalPrice.next(thetotalPrice);
     this.totalQuantity.next(thetotalQuantity);
   }
+
+  decrementQuantity(cartItem: CartItem){
+    let theCartItem = this.cartItems.find(tempCartItem => tempCartItem.id === cartItem.id)!;
+    theCartItem.quantity--;
+    if(theCartItem.quantity === 0){
+       this.removeFromCart(cartItem);
+    }
+    this.computeCartTotals(this.cartItems);
+
+  }
+  
+  removeFromCart(cartItem: CartItem){
+   // this.cartItems = this.cartItems.filter(tempCartItem => tempCartItem.id != cartItem.id)!;
+    const  cartIndex = this.cartItems.findIndex(tempCartItem => tempCartItem.id === cartItem.id);
+    
+    if(cartIndex > -1){
+      this.cartItems.splice(cartIndex, 1);
+    }
+  }
+
 }

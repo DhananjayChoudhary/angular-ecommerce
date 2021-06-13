@@ -15,10 +15,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProductDataTableComponent } from './components/product-data-table/product-data-table.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 
 
 
 const routes: Routes = [
+  {path: 'cart-detail', component: CartDetailComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductDataTableComponent},
   {path: 'category/:id', component: ProductListComponent},
@@ -38,7 +40,8 @@ const routes: Routes = [
     ProductCategoryComponent,
     ProductDetailsComponent,
     ProductDataTableComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
