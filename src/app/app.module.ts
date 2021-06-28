@@ -16,10 +16,13 @@ import { ProductDataTableComponent } from './components/product-data-table/produ
 import {PaginatorModule} from 'primeng/paginator';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 const routes: Routes = [
+  {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-detail', component: CartDetailComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductDataTableComponent},
@@ -41,7 +44,8 @@ const routes: Routes = [
     ProductDetailsComponent,
     ProductDataTableComponent,
     CartStatusComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    CheckoutComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -50,7 +54,8 @@ const routes: Routes = [
     NgbModule,
     TableModule,
     BrowserAnimationsModule,
-    PaginatorModule
+    PaginatorModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

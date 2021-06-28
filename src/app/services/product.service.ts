@@ -30,7 +30,7 @@ export class ProductService {
      return this.getFrombackend(url);
    }
 
-   searchProduct(thePage:number, theSize: number,theKeyword: string): Observable<GetReponse>{
+   searchProduct(thePage:number, theSize: number, theKeyword: string): Observable<GetReponse>{
     const url = this.baseUrl + `/search/findByNameContainingIgnoreCase?name=${theKeyword}`
                              + `&page=${thePage}&size=${theSize}`;  
     return this.httpClient.get<GetReponse>(url);
